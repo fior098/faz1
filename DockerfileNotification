@@ -1,0 +1,29 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+COPY src/Build/DirectoryBuildProps.xml Directory.Build.props
+COPY src/Build/DirectoryPackagesProps.xml Directory.Packages.props
+COPY src/Build/GlobalJson.json global.json
+
+COPY src/Build/Build.csproj src/Build/
+COPY src/Identification/IdentificationContracts/IdentificationContracts.csproj src/Identification/IdentificationContracts/
+COPY src/Identification/IdentificationDomain/IdentificationDomain.csproj src/Identification/IdentificationDomain/
+COPY src/Identification/IdentificationApplication/IdentificationApplication.csproj src/Identification/IdentificationApplication/
+COPY src/Identification/IdentificationInfrastructure/IdentificationInfrastructure.csproj src/Identification/IdentificationInfrastructure/
+COPY src/Identification/IdentificationHost/IdentificationHost.csproj src/Identification/IdentificationHost/
+
+RUN dotnet restore src/Identification/IdentificationHost/IdentificationHost.csproj
+
+COPY src/ src/
+
+RUN dotnet publish src/Identification/IdentificationHost/IdentificationHost.csproj -c Release -o /app --no-restore
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+
+COPY --from=build /app .
+
+ENV ASPNETCORE_URLS=http://+:5001
+EXPOSE 5001
+
+ENTRYPOINT ["dotnet", "IdentificationHost.dll"]

@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "S5/HHSrrG5A=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\Administrator\\RiderProjects\\ChatMfIdentification\\Build\\Build.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\itmo.dev.editorconfig\\1.0.4\\itmo.dev.editorconfig.1.0.4.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\sourcekit.analyzers.collections\\1.0.10\\sourcekit.analyzers.collections.1.0.10.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\sourcekit.analyzers.enumerable\\1.0.10\\sourcekit.analyzers.enumerable.1.0.10.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\sourcekit.analyzers.mustbepartial\\1.1.0\\sourcekit.analyzers.mustbepartial.1.1.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\sourcekit.analyzers.mustbepartial.annotations\\1.1.0\\sourcekit.analyzers.mustbepartial.annotations.1.1.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Error",
+      "message": "Warning As Error: Build depends on SourceKit.Analyzers.MustBePartial (>= 1.0.10) but SourceKit.Analyzers.MustBePartial 1.0.10 was not found. SourceKit.Analyzers.MustBePartial 1.1.0 was resolved instead.",
+      "projectPath": "C:\\Users\\Administrator\\RiderProjects\\ChatMfIdentification\\Build\\Build.csproj",
+      "filePath": "C:\\Users\\Administrator\\RiderProjects\\ChatMfIdentification\\Build\\Build.csproj",
+      "libraryId": "SourceKit.Analyzers.MustBePartial",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}
